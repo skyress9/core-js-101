@@ -93,7 +93,7 @@ function timeSpanToString(startDate, endDate) {
  *
  * SMALL TIP: convert to radians just once, before return in order to not lost precision
  *
- * @param {date} date
+ * @param {Date} date
  * @return {number}
  *
  * @example:
@@ -103,8 +103,8 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date) {
-  const hours = new Date(date).getUTCHours() % 12;
-  const minutes = new Date(date).getUTCMinutes();
+  const hours = date.getUTCHours() % 12;
+  const minutes = date.getUTCMinutes();
   const angle = 0.5 * (60 * hours - 11 * minutes);
   return Math.abs(angle > 180 ? 360 - angle : angle) * (Math.PI / 180);
 }
