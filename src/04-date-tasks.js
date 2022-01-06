@@ -78,11 +78,7 @@ function isLeapYear(date) {
  */
 function timeSpanToString(startDate, endDate) {
   const time = new Date(endDate - startDate);
-  const hours = String(time.getHours() - 3).padStart(2, '0');
-  const minutes = String(time.getMinutes()).padStart(2, '0');
-  const seconds = String(time.getSeconds()).padStart(2, '0');
-  const ms = String(time.getMilliseconds()).padStart(3, '0');
-  return `${hours}:${minutes}:${seconds}.${ms}`;
+  return new Date(time).toISOString().slice(11, 23);
 }
 
 
@@ -93,7 +89,7 @@ function timeSpanToString(startDate, endDate) {
  *
  * SMALL TIP: convert to radians just once, before return in order to not lost precision
  *
- * @param {Date} date
+ * @param {date} date
  * @return {number}
  *
  * @example:
